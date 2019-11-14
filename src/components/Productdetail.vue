@@ -28,8 +28,8 @@
               <td align="left"><h4>{{list.price}}</h4> </td>
             </tr>
             <tr>
-              <td align="right">Product Quantity : </td>
-              <td align="left"><h4>{{list.quantity}}</h4> </td>
+              <td align="right">Select Quantity : </td>
+              <td align="left"><h4><input type="number" style="width:15%;" v-model.number="quantity" min="1"></h4> </td>
             </tr>
             <tr>
               <td align="center" colSpan = "2">
@@ -67,6 +67,7 @@ export default {
       id:'',
       auth: '',
       user: '',
+      quantity: ''
     }
   },
   created() {
@@ -92,7 +93,7 @@ export default {
       "product_title" : this.list.name,
       "product_description" : this.list.description,
       "product_price" : this.list.price,
-      "no_of_items" : this.list.quantity,
+      "no_of_items" : this.quantity,
       "product_logo" : this.list.image
     },
     { headers: { Authorization: `Bearer ${token}` }  
